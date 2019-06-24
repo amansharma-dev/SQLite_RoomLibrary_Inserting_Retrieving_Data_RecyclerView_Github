@@ -1,20 +1,33 @@
 package com.example.sqlite_roomlibrary_inserting_retrieving_data_recyclerview_github.model;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
 import android.content.ContentValues;
+import android.support.annotation.NonNull;
 
 import java.util.UUID;
-
+@Entity
 public class DataItem {
 
+    @PrimaryKey
+    @NonNull
     private String itemId;
+    @ColumnInfo
     private String artistImage;
+    @ColumnInfo
     private String songName;
+    @ColumnInfo
     private String artistName;
+    @ColumnInfo
     private String artistGenre;
+    @ColumnInfo
     private double songPrice;
 
     public DataItem(){}
 
+    @Ignore
     public DataItem(String itemId, String artistImage, String songName, String artistName, String artistGenre, double songPrice) {
 
         if(itemId == null){
