@@ -19,4 +19,10 @@ public interface DataItemDao {
 
     @Query("SELECT COUNT(*) from dataItem")
     int countItems();
+
+    @Query("SELECT * FROM dataItem ORDER BY artistName")
+    List<DataItem> getAll();
+
+    @Query("SELECT * FROM dataItem WHERE itemId = :itemId")
+    DataItem findById(String itemId);
 }
